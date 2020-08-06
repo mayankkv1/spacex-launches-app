@@ -3,7 +3,6 @@ import { SpacexService } from '../services/spacex.service';
 import { Launch } from '../models/launch';
 import { Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { $ } from 'protractor';
 
 @Component({
   selector: 'app-home',
