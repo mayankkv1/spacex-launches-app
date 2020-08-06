@@ -1,0 +1,130 @@
+
+        <!-- <img src="/assets/images/spacex.png" alt="image"> -->
+
+<div class="grid-container">
+    <div [ngClass]="['grid-item','filters']">
+        <div class="card filter_card">
+
+            <div id="filterByYear" class="container">
+                <p [ngClass]="['filter_label']">Launch Year</p>
+                <hr/>
+                <p>
+                    <a href="javascript:void(0)" data-filterByYear="2006" (click)="filterByYear('2006',$event)">2006</a>
+                    <a href="javascript:void(0)" data-filterByYear="2007" (click)="filterByYear('2007',$event)">2007</a>
+                </p>
+                <p>
+                    <a href="javascript:void(0)" data-filterByYear="2008" (click)="filterByYear('2008',$event)">2008</a>
+                    <a href="javascript:void(0)" data-filterByYear="2009" (click)="filterByYear('2009',$event)">2009</a>
+                </p>
+                <p>
+                    <a href="javascript:void(0)" data-filterByYear="2010" (click)="filterByYear('2010',$event)">2010</a>
+                    <a href="javascript:void(0)" data-filterByYear="2011" (click)="filterByYear('2011',$event)">2011</a>
+                </p>
+                <p>
+                    <a href="javascript:void(0)" data-filterByYear="2012" (click)="filterByYear('2012',$event)">2012</a>
+                    <a href="javascript:void(0)" data-filterByYear="2013" (click)="filterByYear('2013',$event)">2013</a>
+                </p>
+                <p>
+                    <a href="javascript:void(0)" data-filterByYear="2014" (click)="filterByYear('2014',$event)">2014</a>
+                    <a href="javascript:void(0)" data-filterByYear="2015" (click)="filterByYear('2015',$event)">2015</a>
+                </p>
+                <p>
+                    <a href="javascript:void(0)" data-filterByYear="2016" (click)="filterByYear('2016',$event)">2016</a>
+                    <a href="javascript:void(0)" data-filterByYear="2017" (click)="filterByYear('2017',$event)">2017</a>
+                </p>
+                <p>
+                    <a href="javascript:void(0)" data-filterByYear="2018" (click)="filterByYear('2018',$event)">2018</a>
+                    <a href="javascript:void(0)" data-filterByYear="2019" (click)="filterByYear('2019',$event)">2019</a>
+                </p>
+                <p [ngClass]="['singleYear']">
+                    <a href="javascript:void(0)" data-filterByYear="2020" (click)="filterByYear('2020',$event)">2020</a>
+                </p>
+
+            </div>
+
+            <div id="filterByLaunchSuccess" class="container">
+                <p [ngClass]="['filter_label']">Successful Launch</p>
+                <hr/>
+                <p>
+                    <a href="javascript:void(0)" data-filterByLaunchSuccess="true" (click)="filterByLaunchSuccess(true,$event)">True</a>
+                    <a href="javascript:void(0)" data-filterByLaunchSuccess="false" (click)="filterByLaunchSuccess(false,$event)">False</a>
+                </p>
+            </div>
+
+            <div id="filterByLandSuccess" class="container">
+                <p [ngClass]="['filter_label']">Successful Landing</p>
+                <hr/>
+                <p>
+                    <a href="javascript:void(0)" data-filterByLandSuccess="true" (click)="filterByLandSuccess(true,$event)">True</a>
+                    <a href="javascript:void(0)" data-filterByLandSuccess="false" (click)="filterByLandSuccess(false,$event)">False</a>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+  
+    <div *ngIf="dataLoaded==false" [ngClass]="['grid-item','dataSpinner']">
+            <mat-spinner></mat-spinner>
+    </div>
+
+    <div *ngIf="noData==true" [ngClass]="['grid-item','noData']">
+        <h2>No Data Found</h2>
+    </div>
+
+    <div *ngIf="dataLoaded==true&&noData==false" [ngClass]="['grid-item','programs-grid-container']">        
+        <div class="card programs-grid-item" *ngFor="let item of data">
+            <div class="card-img-block">
+                <img src="{{item.links.mission_patch_small}}" alt="{{item.mission_name}}">
+            </div>
+
+            <div class="container">
+                <p>
+                    <strong [ngStyle]="{'color':'#5d66a3'}">
+                      {{item.mission_name}} #{{item.flight_number}}
+                    </strong>
+            </p>
+            <p>
+              <strong>
+                  Mission Ids:
+              </strong>
+            </p>
+              <ul>
+                 <li *ngFor="let mission_id of item.mission_id">{{mission_id}}</li>
+             </ul>
+        
+            <p>
+                <strong>
+                    Launch Year:
+                </strong>
+                  <span>
+                  {{item.launch_year}}
+                  </span>
+            </p>
+      
+            <p>
+              <strong>
+                  Successful Launch:
+              </strong>
+                <span>
+                {{item.launch_success}}
+                </span>
+              </p>
+      
+              <p>
+                  <strong>
+                      Successful Landing:
+                  </strong>
+                    <span>
+                    {{item.launch_landing}}
+                    </span>
+                  </p>
+          
+          </div>
+          </div>
+          
+          
+        
+    </div>
+</div>
+
