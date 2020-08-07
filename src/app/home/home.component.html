@@ -60,7 +60,7 @@
     <div *ngIf="dataLoaded==true&&noData==false" [ngClass]="['grid-item','programs-grid-container']">        
         <div class="card programs-grid-item" *ngFor="let item of data">
             <div class="card-img-block">
-                <img src="{{item.links.mission_patch_small}}" alt="{{item.mission_name}}">
+                <img src="{{item.links.mission_patch_small|addPlaceholder}}" alt="{{item.mission_name}}">
             </div>
 
             <div class="container">
