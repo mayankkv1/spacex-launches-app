@@ -7,15 +7,15 @@ import { Launch } from '../models/launch';
   providedIn: 'root'
 })
 export class SpacexService {
-  launchesBaseUrl:string
+  launchesBaseUrl: string;
 
-  constructor(private http: HttpClient) { 
-    this.launchesBaseUrl = "https://api.spaceXdata.com/v3/launches"
+  constructor(private http: HttpClient) {
+    this.launchesBaseUrl = 'https://api.spaceXdata.com/v3/launches';
   }
 
 
   /** Get: get all launch programs */
-  getLaunces (params): Observable<Launch[]> {
-    return this.http.get<Launch[]>(this.launchesBaseUrl+params);
+  getLaunces(params): Observable<Launch[]> {
+    return this.http.get<Launch[]>(this.launchesBaseUrl + params);
   }
 }

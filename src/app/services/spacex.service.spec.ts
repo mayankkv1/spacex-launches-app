@@ -15,17 +15,17 @@ describe('SpacexService', () => {
   });
 
   beforeEach(() => {
-    spacexService = TestBed.get(SpacexService)
-    httpTestingController = TestBed.get(HttpTestingController)
+    spacexService = TestBed.inject(SpacexService);
+    httpTestingController = TestBed.inject(HttpTestingController);
   });
 
   it('should test service', () => {
     expect(spacexService).toBeTruthy();
-  })
+  });
 
   it('should test HttpClient.get', () => {
-    spacexService.getLaunces("?limit=100").subscribe((data)=>{
+    spacexService.getLaunces('?limit=100').subscribe((data) => {
         expect(data).not.toBeNull();
-    }) 
+    });
   });
 });

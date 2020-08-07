@@ -10,127 +10,127 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  data: Launch[]
-  launch_year: string
-  launch_success: boolean
-  land_success: boolean
-  dataLoaded: boolean = false
-  noData: boolean = false
+  data: Launch[];
+  launchYear: string;
+  launchSuccess: boolean;
+  landSuccess: boolean;
+  dataLoaded = false;
+  noData = false;
 
   constructor(private spacexService: SpacexService, private location: Location, private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
-    let urlParams = "?limit=100"
+    let urlParams = '?limit=100';
 
-    if(this.route.snapshot.queryParamMap.get("launch_year")){
-      this.launch_year = this.route.snapshot.queryParamMap.get("launch_year")
-      urlParams += "&launch_year="+this.launch_year
-      document.querySelector(`a[data-filterByYear='${this.launch_year}']`).classList.add('selected');
+    if (this.route.snapshot.queryParamMap.get('launch_year')) {
+      this.launchYear = this.route.snapshot.queryParamMap.get('launch_year');
+      urlParams += '&launch_year=' + this.launchYear;
+      document.querySelector(`a[data-filterByYear='${this.launchYear}']`).classList.add('selected');
     }
 
-    if(this.route.snapshot.queryParamMap.get("launch_success")){
-      if(this.route.snapshot.queryParamMap.get("launch_success")=="true"){
-        this.launch_success = true
-      }else{
-        this.launch_success = false
+    if (this.route.snapshot.queryParamMap.get('launch_success')) {
+      if (this.route.snapshot.queryParamMap.get('launch_success') === 'true') {
+        this.launchSuccess = true;
+      } else {
+        this.launchSuccess = false;
       }
-      urlParams += "&launch_success="+this.launch_success
-      document.querySelector(`a[data-filterByLaunchSuccess='${this.launch_success}']`).classList.add('selected');
+      urlParams += '&launch_success=' + this.launchSuccess;
+      document.querySelector(`a[data-filterByLaunchSuccess='${this.launchSuccess}']`).classList.add('selected');
     }
 
-    if(this.route.snapshot.queryParamMap.get("land_success")){
-      if(this.route.snapshot.queryParamMap.get("land_success")=="true"){
-        this.land_success = true
-      }else{
-        this.land_success = false
+    if (this.route.snapshot.queryParamMap.get('land_success')) {
+      if (this.route.snapshot.queryParamMap.get('land_success') === 'true') {
+        this.landSuccess = true;
+      } else {
+        this.landSuccess = false;
       }
-      urlParams += "&land_success="+this.land_success
-      document.querySelector(`a[data-filterByLandSuccess='${this.land_success}']`).classList.add('selected');
+      urlParams += '&land_success=' + this.landSuccess;
+      document.querySelector(`a[data-filterByLandSuccess='${this.landSuccess}']`).classList.add('selected');
     }
 
-    if(urlParams=="?limit=100"){
+    if (urlParams === '?limit=100') {
       this.location.go(urlParams);
     }
 
-    this.getLaunches(urlParams)
+    this.getLaunches(urlParams);
   }
 
-  filterByYear(year,event){  
-    if(document.getElementById('filterByYear').querySelector("a.selected")!=null){
-      document.getElementById('filterByYear').querySelector("a.selected").classList.remove("selected");
-    }  
+  filterByYear(year, event) {
+    if (document.getElementById('filterByYear').querySelector('a.selected') !== null) {
+      document.getElementById('filterByYear').querySelector('a.selected').classList.remove('selected');
+    }
 
     event.target.classList.add('selected');
 
-    this.launch_year = year
-    let urlParams = `?limit=100&launch_year=${this.launch_year}`
+    this.launchYear = year;
+    let urlParams = `?limit=100&launch_year=${this.launchYear}`;
 
-    if(typeof this.launch_success!='undefined'){
-      urlParams += `&launch_success=${this.launch_success}`
+    if (typeof this.launchSuccess !== 'undefined') {
+      urlParams += `&launch_success=${this.launchSuccess}`;
     }
 
-    if(typeof this.land_success!='undefined'){
-      urlParams += `&land_success=${this.land_success}`
+    if (typeof this.landSuccess !== 'undefined') {
+      urlParams += `&land_success=${this.landSuccess}`;
     }
 
     this.location.go(urlParams);
-    this.getLaunches(urlParams)
+    this.getLaunches(urlParams);
   }
 
-  filterByLaunchSuccess(launch_success,event){
-    if(document.getElementById('filterByLaunchSuccess').querySelector("a.selected")!=null){
-      document.getElementById('filterByLaunchSuccess').querySelector("a.selected").classList.remove("selected");
-    }  
-    
+  filterByLaunchSuccess(launchSuccess, event) {
+    if (document.getElementById('filterByLaunchSuccess').querySelector('a.selected') !== null) {
+      document.getElementById('filterByLaunchSuccess').querySelector('a.selected').classList.remove('selected');
+    }
+
     event.target.classList.add('selected');
 
-    this.launch_success = launch_success
-    let urlParams = `?limit=100&launch_success=${this.launch_success}`
+    this.launchSuccess = launchSuccess;
+    let urlParams = `?limit=100&launch_success=${this.launchSuccess}`;
 
-    if(typeof this.launch_year!='undefined'){
-      urlParams += `&launch_year=${this.launch_year}`
+    if (typeof this.launchYear !== 'undefined') {
+      urlParams += `&launch_year=${this.launchYear}`;
     }
 
-    if(typeof this.land_success!='undefined'){
-      urlParams += `&land_success=${this.land_success}`
+    if (typeof this.landSuccess !== 'undefined') {
+      urlParams += `&land_success=${this.landSuccess}`;
     }
 
     this.location.go(urlParams);
-    this.getLaunches(urlParams)
+    this.getLaunches(urlParams);
   }
 
-  filterByLandSuccess(land_success,event){
-    if(document.getElementById('filterByLandSuccess').querySelector("a.selected")!=null){
-      document.getElementById('filterByLandSuccess').querySelector("a.selected").classList.remove("selected");
-    }  
-    
+  filterByLandSuccess(landSuccess, event) {
+    if (document.getElementById('filterByLandSuccess').querySelector('a.selected') !== null) {
+      document.getElementById('filterByLandSuccess').querySelector('a.selected').classList.remove('selected');
+    }
+
     event.target.classList.add('selected');
 
-    this.land_success = land_success
-    let urlParams = `?limit=100&land_success=${this.land_success}`
+    this.landSuccess = landSuccess;
+    let urlParams = `?limit=100&land_success=${this.landSuccess}`;
 
-    if(typeof this.launch_success!='undefined'){
-      urlParams += `&launch_success=${this.launch_success}`
+    if (typeof this.launchSuccess !== 'undefined') {
+      urlParams += `&launch_success=${this.launchSuccess}`;
     }
 
-    if(typeof this.launch_year!='undefined'){
-      urlParams += `&launch_year=${this.launch_year}`
+    if (typeof this.launchYear !== 'undefined') {
+      urlParams += `&launch_year=${this.launchYear}`;
     }
 
     this.location.go(urlParams);
-    this.getLaunches(urlParams)
+    this.getLaunches(urlParams);
   }
 
-  getLaunches(params){
+  getLaunches(params) {
     this.spacexService.getLaunces(params)
     .subscribe((data: Launch[]) => {
-      console.log('data:',data)
-      this.dataLoaded = true
-      this.data = data
-      if(data.length==0){
-        this.noData = true
-      }else{
-        this.noData = false
+      console.log('data:', data);
+      this.dataLoaded = true;
+      this.data = data;
+      if (data.length === 0) {
+        this.noData = true;
+      } else {
+        this.noData = false;
       }
     });
   }

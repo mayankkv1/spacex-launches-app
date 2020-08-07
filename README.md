@@ -1,6 +1,6 @@
 # SapientAssignment
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.3. It shows a list of spacex launches and filters to filter the list.
 
 ## Development server
 
@@ -18,9 +18,25 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
+Unit tests are writter for services and components
+
 ## Running end-to-end tests
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## API Reference
+
+API end point for the first-time page load without any Filters:	https://api.spaceXdata.com/v3/launches?limit=100
+
+API end point with Filters applied: 
+
+    Launch Success Filter: https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true
+
+    Launch & Land Filter: https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true
+
+    All: https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2014
+
+
 
 ## Further help
 
