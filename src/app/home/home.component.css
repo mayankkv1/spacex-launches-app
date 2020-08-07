@@ -3,10 +3,6 @@
     grid-template-columns: 1fr 5fr;
 }
 
-#filterByLaunchSuccess{
-  margin-top: 207px;
-}
-
 .filters a{
     background-color: #c5e09b;
     padding-left: 10px;
@@ -87,6 +83,60 @@
   text-align: center;
 }
 
+.filterByYear-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.filterByYear-container a{
+ margin-bottom: 10px;
+ text-align: center;
+}
+
+.filterByYear-container a:nth-child(2n+1) {
+  margin-right: 5px;
+}
+
+.filterByYear-container a:nth-child(2n) {
+  margin-left: 5px;
+}
+
+.filterByLaunchSuccess-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 10px;
+}
+
+.filterByLaunchSuccess-container a{
+  text-align: center;
+}
+
+.filterByLaunchSuccess-container a:nth-child(2n+1) {
+  margin-right: 5px;
+}
+
+.filterByLaunchSuccess-container a:nth-child(2n) {
+  margin-left: 5px;
+}
+
+.filterByLandSuccess-container{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.filterByLandSuccess-container a{
+ /* margin-bottom: 10px; */
+ text-align: center;
+}
+
+.filterByLandSuccess-container a:nth-child(2n+1) {
+  margin-right: 5px;
+}
+
+.filterByLandSuccess-container a:nth-child(2n) {
+  margin-left: 5px;
+}
+
 @media screen and (max-width: 700px) {
   .grid-container {
       grid-template-columns: 1fr;
@@ -100,6 +150,30 @@
 
   .programs-grid-container{
     grid-template-columns: 1fr;
+  }
+   
+  .filterByYear-container a:nth-child(2n+1) {
+    margin-right: 20px;
+  }
+
+  .filterByYear-container a:nth-child(2n) {
+    margin-left: 20px;
+  }
+
+  .filterByLandSuccess-container a:nth-child(2n+1) {
+    margin-right: 20px;
+  }
+
+  .filterByLandSuccess-container a:nth-child(2n) {
+    margin-left: 20px;
+  }
+
+  .filterByLaunchSuccess-container a:nth-child(2n+1) {
+    margin-right: 20px;
+  }
+
+  .filterByLaunchSuccess-container a:nth-child(2n) {
+    margin-left: 20px;
   }
   
 }
