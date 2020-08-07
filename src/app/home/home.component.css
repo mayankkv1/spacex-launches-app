@@ -137,6 +137,13 @@
   margin-left: 5px;
 }
 
+.remove-fliter-btn{
+  display: block;
+  padding-left: 7px;
+  padding-right: 7px;
+  margin-bottom: 10px;
+}
+
 @media screen and (max-width: 700px) {
   .grid-container {
       grid-template-columns: 1fr;

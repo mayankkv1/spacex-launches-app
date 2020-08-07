@@ -36,7 +36,15 @@ API end point with Filters applied:
 
     All: https://api.spaceXdata.com/v3/launches?limit=100&launch_success=true&land_success=true&launch_year=2014
 
+## Screenshots
 
+Screenshots of lighthouse report:
+
+https://sapient-app.herokuapp.com/assets/images/lighthouse-all.jpg
+https://sapient-app.herokuapp.com/assets/images/lighthouse-best-practices.jpg
+https://sapient-app.herokuapp.com/assets/images/lighthouse-performance.jpg
+https://sapient-app.herokuapp.com/assets/images/lighthouse-acccessibility.jpg
+https://sapient-app.herokuapp.com/assets/images/lighthouse-seo.jpg
 
 ## Further help
 

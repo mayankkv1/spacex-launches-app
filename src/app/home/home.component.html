@@ -5,6 +5,7 @@
     <div [ngClass]="['grid-item','filters']">
         <div class="card filter_card">
             <div>
+                <button mat-raised-button [ngClass]="['remove-fliter-btn']" (click)="removeFilters()">Remove Filters</button>
                 <strong>Filters</strong>
             </div>
             <div id="filterByYear" class="container">

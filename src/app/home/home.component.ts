@@ -121,6 +121,22 @@ export class HomeComponent implements OnInit {
     this.getLaunches(urlParams);
   }
 
+  removeFilters() {
+    this.getLaunches('?limit=100');
+
+    if (document.getElementById('filterByYear').querySelector('a.selected') !== null) {
+      document.getElementById('filterByYear').querySelector('a.selected').classList.remove('selected');
+    }
+    if (document.getElementById('filterByLaunchSuccess').querySelector('a.selected') !== null) {
+      document.getElementById('filterByLaunchSuccess').querySelector('a.selected').classList.remove('selected');
+    }
+    if (document.getElementById('filterByLandSuccess').querySelector('a.selected') !== null) {
+      document.getElementById('filterByLandSuccess').querySelector('a.selected').classList.remove('selected');
+    }
+
+    this.location.go('?limit=100');
+  }
+
   getLaunches(params) {
     this.spacexService.getLaunces(params)
     .subscribe((data: Launch[]) => {
