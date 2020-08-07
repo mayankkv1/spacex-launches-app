@@ -40,15 +40,15 @@ API end point with Filters applied:
 
 Screenshots of lighthouse report:
 
-https://sapient-app.herokuapp.com/assets/images/lighthouse-all.jpg
+https://sapient-app.herokuapp.com/assets/images/lighthouse-all.png
 
-https://sapient-app.herokuapp.com/assets/images/lighthouse-best-practices.jpg
+https://sapient-app.herokuapp.com/assets/images/lighthouse-best-practices.png
 
-https://sapient-app.herokuapp.com/assets/images/lighthouse-performance.jpg
+https://sapient-app.herokuapp.com/assets/images/lighthouse-performance.png
 
-https://sapient-app.herokuapp.com/assets/images/lighthouse-acccessibility.jpg
+https://sapient-app.herokuapp.com/assets/images/lighthouse-acccessibility.png
 
-https://sapient-app.herokuapp.com/assets/images/lighthouse-seo.jpg
+https://sapient-app.herokuapp.com/assets/images/lighthouse-seo.png
 
 ## Further help
 
