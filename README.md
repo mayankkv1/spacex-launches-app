@@ -18,7 +18,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Unit tests are writter for services and components
+Unit tests are written for services and components
 
 ## Running end-to-end tests
 
