@@ -14,8 +14,8 @@ export class HomeComponent implements OnInit {
   launchYear: string;
   launchSuccess: boolean;
   landSuccess: boolean;
-  dataLoaded:boolean = false;
-  noData:boolean = false;
+  dataLoaded = false;
+  noData = false;
 
   constructor(private spacexService: SpacexService, private location: Location, private route: ActivatedRoute ) { }
 
