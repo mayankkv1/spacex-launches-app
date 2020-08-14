@@ -65,11 +65,11 @@ export class HomeComponent implements OnInit {
     this.launchYear = year;
     let urlParams = `?limit=100&launch_year=${this.launchYear}`;
 
-    if (typeof this.launchSuccess !== 'undefined') {
+    if (typeof this.launchSuccess !== 'undefined' && this.launchSuccess !== null) {
       urlParams += `&launch_success=${this.launchSuccess}`;
     }
 
-    if (typeof this.landSuccess !== 'undefined') {
+    if (typeof this.landSuccess !== 'undefined' && this.landSuccess !== null) {
       urlParams += `&land_success=${this.landSuccess}`;
     }
 
@@ -87,11 +87,11 @@ export class HomeComponent implements OnInit {
     this.launchSuccess = launchSuccess;
     let urlParams = `?limit=100&launch_success=${this.launchSuccess}`;
 
-    if (typeof this.launchYear !== 'undefined') {
+    if (typeof this.launchYear !== 'undefined' && this.launchYear !== null) {
       urlParams += `&launch_year=${this.launchYear}`;
     }
 
-    if (typeof this.landSuccess !== 'undefined') {
+    if (typeof this.landSuccess !== 'undefined' && this.landSuccess !== null) {
       urlParams += `&land_success=${this.landSuccess}`;
     }
 
@@ -109,11 +109,11 @@ export class HomeComponent implements OnInit {
     this.landSuccess = landSuccess;
     let urlParams = `?limit=100&land_success=${this.landSuccess}`;
 
-    if (typeof this.launchSuccess !== 'undefined') {
+    if (typeof this.launchSuccess !== 'undefined' && this.launchSuccess !== null) {
       urlParams += `&launch_success=${this.launchSuccess}`;
     }
 
-    if (typeof this.launchYear !== 'undefined') {
+    if (typeof this.launchYear !== 'undefined' && this.launchYear !== null) {
       urlParams += `&launch_year=${this.launchYear}`;
     }
 
@@ -123,6 +123,10 @@ export class HomeComponent implements OnInit {
 
   removeFilters() {
     this.getLaunches('?limit=100');
+
+    this.launchYear = null;
+    this.launchSuccess = null;
+    this.landSuccess = null;
 
     if (document.getElementById('filterByYear').querySelector('a.selected') !== null) {
       document.getElementById('filterByYear').querySelector('a.selected').classList.remove('selected');
@@ -138,6 +142,8 @@ export class HomeComponent implements OnInit {
   }
 
   getLaunches(params) {
+    this.dataLoaded = false;
+
     this.spacexService.getLaunces(params)
     .subscribe((data: Launch[]) => {
       console.log('data:', data);
